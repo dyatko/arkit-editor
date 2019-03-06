@@ -3,8 +3,8 @@ import AceEditor, { AceEditorProps } from "react-ace";
 import "brace/theme/monokai";
 import "brace/mode/plain_text";
 import { connect } from "react-redux";
-import { updatePUML } from "./actions";
-import { State } from "./reducer";
+import { updatePUML } from "../store/actions";
+import { State } from "../store/reducer";
 
 const mapStateToProps = (state: State): AceEditorProps => ({
   mode: "plain_text",

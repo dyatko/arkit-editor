@@ -1,7 +1,7 @@
 import * as React from "react";
 import { connect } from "react-redux";
-import { State } from "./reducer";
-import { stopLoading } from "./actions";
+import { State } from "../store/reducer";
+import { stopLoading } from "../store/actions";
 import Loader from "react-loader-spinner";
 
 interface ImageProps {

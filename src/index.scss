@@ -3,10 +3,30 @@
 html,
 body {
   overflow: hidden;
+  height: 100%;
 }
 
 main {
   display: flex;
+  height: 100%;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+header {
+  position: fixed;
+  z-index: 100;
+  bottom: 10px;
+  right: 10px;
+
+  img {
+    opacity: 0.7;
+    display: block;
+    width: 33vw;
+    max-width: 200px;
+  }
 }
 
 section {
@@ -21,6 +41,11 @@ section {
     flex: 0.45;
     max-width: 480px;
     background: black;
+
+    @media screen and (max-width: 768px) {
+      max-width: 100%;
+      min-height: 240px;
+    }
   }
 
   &:last-of-type {
@@ -34,6 +59,10 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @media screen and (max-width: 768px) {
+      height: auto;
+    }
   }
 
   img {
