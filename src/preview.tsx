@@ -4,35 +4,65 @@ import { State } from "./reducer";
 import { stopLoading } from "./actions";
 import Loader from "react-loader-spinner";
 
-const Image = ({ src, loading, onLoad }) => {
-  return (
-    <React.Fragment>
-      <img
-        src={src}
-        onLoad={onLoad}
-        onError={event1 => window.alert(event1)}
-        style={{ visibility: loading ? "hidden" : "visible" }}
-      />
-      {loading && (
-        <div className="loader">
-          <Loader type="MutatingDot" />
-        </div>
-      )}
-    </React.Fragment>
-  );
-};
+interface ImageProps {
+  loading: boolean;
+  src: string;
+  onLoad: () => void;
+}
 
-const mapStateToProps = (state: State) => {
-  const host = process.env.NODE_ENV === 'development' ? 'https://arkit.herokuapp.com' : ''
+class Image extends React.Component<ImageProps> {
+  private imgRef = React.createRef<HTMLImageElement>();
+
+  constructor(props) {
+    super(props);
+  }
+
+  private checkImgLoad() {
+    if (this.imgRef.current.complete) {
+      this.props.onLoad();
+    }
+  }
+
+  componentDidMount() {
+    this.checkImgLoad();
+  }
+
+  componentDidUpdate() {
+    this.checkImgLoad();
+  }
+
+  render() {
+    return (
+      <React.Fragment>
+        <img
+          ref={this.imgRef}
+          onLoad={this.checkImgLoad.bind(this)}
+          onError={event => window.alert(event)}
+          src={this.props.src}
+          style={{ visibility: this.props.loading ? "hidden" : "visible" }}
+          alt="Diagram preview"
+        />
+        {this.props.loading && (
+          <div className="loader">
+            <Loader type="MutatingDot" />
+          </div>
+        )}
+      </React.Fragment>
+    );
+  }
+}
+
+const mapStateToProps = (state: State): Partial<ImageProps> => {
+  const host =
+    process.env.NODE_ENV === "development" ? "https://arkit.herokuapp.com" : "";
+  console.warn(state);
   return {
     src: `${host}${state.url}?raw`,
     loading: !state.loaded
   };
 };
 
-const mapDispatchToProps = (
-  dispatch
-): React.ImgHTMLAttributes<HTMLImageElement> => {
+const mapDispatchToProps = (dispatch): Partial<ImageProps> => {
   return {
     onLoad() {
       dispatch(stopLoading());

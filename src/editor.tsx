@@ -11,8 +11,8 @@ const mapStateToProps = (state: State): AceEditorProps => ({
   theme: "monokai",
   value: state.puml,
   debounceChangePeriod: 500,
-  width: '100%',
-  height: '100%',
+  width: "100%",
+  height: "100%",
   setOptions: {
     tabSize: 2
   }

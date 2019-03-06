@@ -23,32 +23,43 @@ export const INITIAL_STATE: State = {
   loaded: false
 };
 
-export const reducer = (oldState = INITIAL_STATE, action: AnyAction): State => {
-  const newState = { ...oldState };
+const updatePUML = (state: State, action: AnyAction): State => ({
+  ...state,
+  puml: action.type === UPDATE_PUML ? action.puml : state.puml
+});
 
-  if (action.type === UPDATE_PUML) {
-    newState.puml = action.puml;
-  }
-
+const updatePUMLFromURL = (state: State, action: AnyAction): State => {
   if (action.type === REHYDRATE) {
     const [empty, type, encoded] = window.location.pathname.split("/");
 
     if (type && encoded) {
       if (type === "svg" || type === "png") {
-        newState.type = type;
+        state.type = type;
       }
-      newState.puml = decode(encoded);
-      newState.encoded = encoded;
+      state.puml = decode(encoded);
+      state.encoded = encoded;
     }
   }
+
+  return state;
+};
+
+const updateLoaded = (state: State, action: AnyAction): State => ({
+  ...state,
+  loaded: action.type === UPDATE_LOADING ? action.loaded : state.loaded
+});
+
+export const reducer = (oldState = INITIAL_STATE, action: AnyAction): State => {
+  let newState: State = { ...oldState };
+
+  newState = updatePUML(newState, action);
+  newState = updatePUMLFromURL(newState, action);
 
   if (oldState.puml !== newState.puml || !newState.encoded) {
     newState.encoded = encode(newState.puml);
   }
 
-  if (action.type === UPDATE_LOADING) {
-    newState.loaded = action.loaded;
-  }
+  newState = updateLoaded(newState, action);
 
   const newUrl = ["", newState.type, newState.encoded].join("/");
 

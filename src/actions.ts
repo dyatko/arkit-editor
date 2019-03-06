@@ -12,5 +12,5 @@ export const stopLoading = () => {
   return {
     type: UPDATE_LOADING,
     loaded: true
-  }
-}
+  };
+};
