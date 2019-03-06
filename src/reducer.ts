@@ -23,10 +23,21 @@ export const INITIAL_STATE: State = {
   loaded: false
 };
 
-const updatePUML = (state: State, action: AnyAction): State => ({
+const updateStateProperty = (
+  state: State,
+  action: AnyAction,
+  type: string,
+  prop: keyof State
+): State => ({
   ...state,
-  puml: action.type === UPDATE_PUML ? action.puml : state.puml
+  [prop]: action.type === type ? action[prop] : state[prop]
 });
+
+const updatePUML = (state: State, action: AnyAction): State =>
+  updateStateProperty(state, action, UPDATE_PUML, "puml");
+
+const updateLoaded = (state: State, action: AnyAction): State =>
+  updateStateProperty(state, action, UPDATE_LOADING, "loaded");
 
 const updatePUMLFromURL = (state: State, action: AnyAction): State => {
   if (action.type === REHYDRATE) {
@@ -43,11 +54,6 @@ const updatePUMLFromURL = (state: State, action: AnyAction): State => {
 
   return state;
 };
-
-const updateLoaded = (state: State, action: AnyAction): State => ({
-  ...state,
-  loaded: action.type === UPDATE_LOADING ? action.loaded : state.loaded
-});
 
 export const reducer = (oldState = INITIAL_STATE, action: AnyAction): State => {
   let newState: State = { ...oldState };
