@@ -1,0 +1,44 @@
+@import "../node_modules/reset-css/reset.css";
+
+html,
+body {
+  overflow: hidden;
+}
+
+main {
+  display: flex;
+}
+
+section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  flex-direction: column;
+
+  &:first-of-type {
+    flex: 0.45;
+    max-width: 480px;
+    background: black;
+  }
+
+  &:last-of-type {
+    position: relative;
+  }
+
+  .loader {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+  }
+}
