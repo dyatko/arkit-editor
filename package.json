@@ -1,6 +1,6 @@
 {
   "name": "arkit-editor",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "React-based editor for PlantUML",
   "scripts": {
     "start": "parcel ./src/index.html",
@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "brace": "0.11.1",
-    "plantuml-encoder-decoder": "1.2.5",
+    "plantuml-encoder-decoder": "dyatko/plantuml-encoder#master",
     "react": "16.8.4",
     "react-ace": "6.4.0",
     "react-dom": "16.8.4",

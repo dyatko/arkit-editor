@@ -47,12 +47,8 @@ const updatePUMLFromURL = (state: State, action: AnyAction): State => {
       if (type === "svg" || type === "png") {
         state.type = type;
       }
-      try {
-        state.puml = decode(encoded);
-        state.encoded = encoded;
-      } catch (e) {
-        console.error(e);
-      }
+      state.puml = decode(encoded);
+      state.encoded = encoded;
     }
   }
 
