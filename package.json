@@ -1,6 +1,6 @@
 {
   "name": "arkit-editor",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "React-based editor for PlantUML",
   "scripts": {
     "start": "parcel ./src/index.html",
