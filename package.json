@@ -1,9 +1,9 @@
 {
   "name": "arkit-editor",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "React-based editor for PlantUML",
   "scripts": {
-    "architecture": "arkit -f src/components/index.tsx -o arkit.svg",
+    "architecture": "arkit -o arkit.svg",
     "start": "parcel ./src/index.html",
     "test": "npm run prepack",
     "prettier": "prettier --write \"src/*.{ts,tsx,html,scss}\"",
@@ -30,7 +30,7 @@
   "homepage": "https://github.com/dyatko/arkit-editor#readme",
   "devDependencies": {
     "@types/react": "16.8.7",
-    "arkit": "1.3.2",
+    "arkit": "1.3.3",
     "parcel": "1.12.0",
     "prettier": "1.16.4",
     "sass": "1.17.2",
