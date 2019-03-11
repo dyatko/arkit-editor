@@ -1,4 +1,3 @@
-import * as React from "react";
 import AceEditor, { AceEditorProps } from "react-ace";
 import "brace/theme/monokai";
 import "brace/mode/plain_text";

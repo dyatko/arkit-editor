@@ -10,6 +10,7 @@ import { reset } from 'styled-reset';
 import { createGlobalStyle } from "styled-components";
 import { Container } from "./container";
 import { Section } from "./section";
+import { Logo } from "./logo";
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -27,7 +28,9 @@ render(
     <PersistGate persistor={persistor}>
       <GlobalStyle />
       <Container>
-        <Header />
+        <Header>
+          <Logo />
+        </Header>
         <Section>
           <Editor />
         </Section>
