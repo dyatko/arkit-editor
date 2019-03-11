@@ -2,7 +2,8 @@ import * as React from "react";
 import { connect } from "react-redux";
 import { State } from "../store/reducer";
 import { stopLoading } from "../store/actions";
-import Loader from "react-loader-spinner";
+import { Spinner } from "./spinner";
+import { ResponsiveImage } from "./responsive-image";
 
 interface ImageProps {
   loading: boolean;
@@ -34,7 +35,7 @@ class Image extends React.Component<ImageProps> {
   render() {
     return (
       <React.Fragment>
-        <img
+        <ResponsiveImage
           ref={this.imgRef}
           onLoad={this.checkImgLoad.bind(this)}
           onError={event => window.alert(event)}
@@ -42,11 +43,7 @@ class Image extends React.Component<ImageProps> {
           style={{ visibility: this.props.loading ? "hidden" : "visible" }}
           alt="Diagram preview"
         />
-        {this.props.loading && (
-          <div className="loader">
-            <Loader type="MutatingDot" />
-          </div>
-        )}
+        {this.props.loading && <Spinner />}
       </React.Fragment>
     );
   }

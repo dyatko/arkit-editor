@@ -3,14 +3,13 @@ import AceEditor, { AceEditorProps } from "react-ace";
 import "brace/theme/monokai";
 import "brace/mode/plain_text";
 import { connect } from "react-redux";
-import { updatePUML } from "../store/actions";
+import { updateEncoded, updatePUML } from "../store/actions";
 import { State } from "../store/reducer";
 
 const mapStateToProps = (state: State): AceEditorProps => ({
   mode: "plain_text",
   theme: "monokai",
   value: state.puml,
-  debounceChangePeriod: 500,
   width: "100%",
   height: "100%",
   setOptions: {
@@ -18,10 +17,18 @@ const mapStateToProps = (state: State): AceEditorProps => ({
   }
 });
 
+let debounceEncoded: number;
+
 const mapDispatchToProps = (dispatch): AceEditorProps => {
   return {
-    onChange(value) {
-      dispatch(updatePUML(value));
+    onChange(puml) {
+      dispatch(updatePUML(puml));
+
+      if (debounceEncoded) clearTimeout(debounceEncoded);
+
+      debounceEncoded = setTimeout(() => {
+        dispatch(updateEncoded(puml));
+      }, 1000);
     }
   };
 };

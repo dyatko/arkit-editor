@@ -1,6 +1,6 @@
 {
   "name": "arkit-editor",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "React-based editor for PlantUML",
   "scripts": {
     "architecture": "arkit -o arkit.svg",
@@ -30,6 +30,7 @@
   "homepage": "https://github.com/dyatko/arkit-editor#readme",
   "devDependencies": {
     "@types/react": "16.8.7",
+    "@types/styled-components": "^4.1.12",
     "arkit": "1.3.3",
     "parcel": "1.12.0",
     "prettier": "1.16.4",
@@ -46,6 +47,7 @@
     "react-redux": "6.0.1",
     "redux": "4.0.1",
     "redux-persist": "5.10.0",
-    "reset-css": "4.0.1"
+    "styled-components": "^4.1.3",
+    "styled-reset": "^2.0.0"
   }
 }

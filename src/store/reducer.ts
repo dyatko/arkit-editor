@@ -1,4 +1,4 @@
-import { UPDATE_LOADING, UPDATE_PUML } from "./actions";
+import { UPDATE_ENCODED, UPDATE_LOADING, UPDATE_PUML } from "./actions";
 import { encode, decode } from "plantuml-encoder-decoder";
 import { REHYDRATE } from "redux-persist/es/constants";
 import { AnyAction } from "redux";
@@ -39,6 +39,9 @@ const updatePUML = (state: State, action: AnyAction): State =>
 const updateLoaded = (state: State, action: AnyAction): State =>
   updateStateProperty(state, action, UPDATE_LOADING, "loaded");
 
+const updateEncoded = (state: State, action: AnyAction): State =>
+  updateStateProperty(state, action, UPDATE_ENCODED, "encoded");
+
 const updatePUMLFromURL = (state: State, action: AnyAction): State => {
   if (action.type === REHYDRATE) {
     const [empty, type, encoded] = window.location.pathname.split("/");
@@ -59,11 +62,13 @@ export const reducer = (oldState = INITIAL_STATE, action: AnyAction): State => {
   let newState: State = { ...oldState };
 
   newState = updatePUML(newState, action);
+  newState = updateEncoded(newState, action);
   newState = updatePUMLFromURL(newState, action);
 
-  if (oldState.puml !== newState.puml || !newState.encoded) {
-    newState.encoded = encode(newState.puml);
-  }
+  // if (oldState.puml !== newState.puml || !newState.encoded) {
+  //   console.log('update encoded')
+  //   // newState.
+  // }
 
   newState = updateLoaded(newState, action);
 
