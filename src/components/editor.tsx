@@ -21,7 +21,6 @@ let debounceEncoded: number;
 const mapDispatchToProps = (dispatch): MonacoEditorProps => {
   return {
     editorWillMount(monaco) {
-      console.log(monaco)
       registerPlantUML(monaco)
     },
     onChange(puml) {
