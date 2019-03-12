@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/dyatko/arkit-editor#readme",
   "devDependencies": {
-    "@types/react": "16.8.7",
+    "@types/react": "16.8.8",
     "@types/styled-components": "4.1.12",
     "arkit": "1.3.12",
     "parcel": "1.12.0",
