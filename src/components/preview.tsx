@@ -50,8 +50,14 @@ class Image extends React.Component<ImageProps> {
 }
 
 const mapStateToProps = (state: State): Partial<ImageProps> => {
-  const host =
-    process.env.NODE_ENV === "development" ? "https://arkit.herokuapp.com" : "";
+  let isDev = false;
+  try {
+    isDev = process.env.NODE_ENV === "development";
+  } catch (e) {
+    console.error(e);
+  }
+  const host = isDev ? "https://arkit.herokuapp.com" : "";
+
   return {
     src: `${host}${state.url}?raw`,
     loading: !state.loaded
