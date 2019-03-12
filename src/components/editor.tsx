@@ -1,25 +1,29 @@
-import AceEditor, { AceEditorProps } from "react-ace";
-import "brace/theme/monokai";
-import "brace/mode/plain_text";
+import MonacoEditor, { MonacoEditorProps } from "react-monaco-editor";
 import { connect } from "react-redux";
 import { updateEncoded, updatePUML } from "../store/actions";
 import { State } from "../store/reducer";
+import { registerPlantUML } from "../plantuml-language";
 
-const mapStateToProps = (state: State): AceEditorProps => ({
-  mode: "plain_text",
-  theme: "monokai",
+const mapStateToProps = (state: State): MonacoEditorProps => ({
+  language: "plantuml",
+  theme: "vs-dark",
   value: state.puml,
-  width: "100%",
-  height: "100%",
-  setOptions: {
-    tabSize: 2
+  options: {
+    minimap: {
+      enabled: false
+    },
+    automaticLayout: true
   }
 });
 
 let debounceEncoded: number;
 
-const mapDispatchToProps = (dispatch): AceEditorProps => {
+const mapDispatchToProps = (dispatch): MonacoEditorProps => {
   return {
+    editorWillMount(monaco) {
+      console.log(monaco)
+      registerPlantUML(monaco)
+    },
     onChange(puml) {
       dispatch(updatePUML(puml));
 
@@ -35,4 +39,4 @@ const mapDispatchToProps = (dispatch): AceEditorProps => {
 export const Editor = connect(
   mapStateToProps,
   mapDispatchToProps
-)(AceEditor);
+)(MonacoEditor);
