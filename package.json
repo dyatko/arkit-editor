@@ -1,6 +1,6 @@
 {
   "name": "arkit-editor",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "React-based editor for PlantUML",
   "scripts": {
     "architecture": "arkit -o arkit.svg",
