@@ -38,12 +38,12 @@
     "typescript": "3.3.3333"
   },
   "dependencies": {
-    "monaco-editor": "^0.16.0",
+    "monaco-editor": "0.16.0",
     "plantuml-encoder-decoder": "dyatko/plantuml-encoder#master",
     "react": "16.8.4",
     "react-dom": "16.8.4",
     "react-loader-spinner": "2.3.0",
-    "react-monaco-editor": "^0.25.1",
+    "react-monaco-editor": "0.25.1",
     "react-redux": "6.0.1",
     "redux": "4.0.1",
     "redux-persist": "5.10.0",
