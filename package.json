@@ -49,5 +49,10 @@
     "redux-persist": "5.10.0",
     "styled-components": "4.1.3",
     "styled-reset": "2.0.0"
+  },
+  "renovate": {
+    "extends": [
+      "config:base", ":automergeAll"
+    ]
   }
 }
