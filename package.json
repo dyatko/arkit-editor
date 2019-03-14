@@ -38,7 +38,7 @@
     "typescript": "3.3.3333"
   },
   "dependencies": {
-    "monaco-editor": "0.16.0",
+    "monaco-editor": "0.16.1",
     "plantuml-encoder-decoder": "dyatko/plantuml-encoder#master",
     "react": "16.8.4",
     "react-dom": "16.8.4",
