@@ -34,7 +34,7 @@
     "arkit": "1.4.1",
     "parcel": "1.12.2",
     "prettier": "1.16.4",
-    "sass": "1.17.2",
+    "sass": "1.17.3",
     "typescript": "3.3.3333"
   },
   "dependencies": {
