@@ -35,7 +35,7 @@
     "parcel": "1.12.2",
     "prettier": "1.16.4",
     "sass": "1.17.3",
-    "typescript": "3.3.3333"
+    "typescript": "3.3.4000"
   },
   "dependencies": {
     "monaco-editor": "0.16.2",
