@@ -40,8 +40,8 @@
   "dependencies": {
     "monaco-editor": "0.16.2",
     "plantuml-encoder-decoder": "dyatko/plantuml-encoder#master",
-    "react": "16.8.4",
-    "react-dom": "16.8.4",
+    "react": "16.8.5",
+    "react-dom": "16.8.5",
     "react-loader-spinner": "2.3.0",
     "react-monaco-editor": "0.25.1",
     "react-redux": "6.0.1",
