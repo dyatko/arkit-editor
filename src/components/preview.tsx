@@ -21,6 +21,8 @@ class Image extends React.Component<ImageProps> {
   private checkImgLoad() {
     if (this.imgRef.current.complete) {
       this.props.onLoad();
+    } else {
+      console.log("Loading is not complete");
     }
   }
 
@@ -38,7 +40,10 @@ class Image extends React.Component<ImageProps> {
         <ResponsiveImage
           ref={this.imgRef}
           onLoad={this.checkImgLoad.bind(this)}
-          onError={event => window.alert(event)}
+          onError={event => {
+            console.error(event);
+            this.checkImgLoad();
+          }}
           src={this.props.src}
           style={{ visibility: this.props.loading ? "hidden" : "visible" }}
           alt="Diagram preview"

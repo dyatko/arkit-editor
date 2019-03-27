@@ -6,16 +6,14 @@ export const Logo = styled.a.attrs(props => ({
   href: "https://www.npmjs.com/arkit",
   target: "_blank"
 }))`
-  background: url(${logo}) no-repeat bottom center;
+  background: url(${logo}) no-repeat center;
+  background-origin: content-box;
   background-size: contain;
-  opacity: 0.3;
   display: block;
   width: 33vw;
   height: 60px;
-  max-width: 180px;
-  transition: 200ms all ease-in-out;
-
-  &:hover {
-    opacity: 1;
-  }
+  max-width: 150px;
+  filter: invert(1);
+  padding: 6px;
+  margin: 0 auto;
 `;

@@ -3,8 +3,18 @@ import { decode } from "plantuml-encoder-decoder";
 import { REHYDRATE } from "redux-persist/es/constants";
 import { AnyAction } from "redux";
 
+export const emptyPUML = `@startuml
+
+skinparam monochrome true
+skinparam shadowing false
+
+Developer -> (arkit)
+
+@enduml`;
+
 export interface State {
   type: "svg" | "png";
+  mode: "about" | "editor";
   puml: string;
   encoded: string;
   url: string;
@@ -13,11 +23,8 @@ export interface State {
 
 export const INITIAL_STATE: State = {
   type: "svg",
-  puml: `@startuml
-
-
-
-@enduml`,
+  mode: "about",
+  puml: emptyPUML,
   encoded: "",
   url: "",
   loaded: false
