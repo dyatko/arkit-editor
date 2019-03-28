@@ -31,18 +31,18 @@ const StyledMarkdown = styled.div`
     font-weight: bold;
     font-size: 24px;
     line-height: 130%;
-    margin-top: 20px;
+    margin-top: 28px;
     margin-bottom: 8px;
   }
 
   h4 {
     font-weight: bold;
-    font-size: 14px;
+    font-size: 13px;
     line-height: 130%;
     margin-top: 20px;
     margin-bottom: 8px;
     text-transform: uppercase;
-    letter-spacing: 0.6px;
+    letter-spacing: 0.8px;
   }
 
   p {
@@ -63,6 +63,10 @@ const StyledMarkdown = styled.div`
     font: 13px "Oxygen Mono", monospace;
     line-height: 150%;
     background: rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    padding: 4px;
+    display: inline-block;
+    white-space: nowrap;
 
     &.block {
       padding: 12px;
@@ -70,17 +74,19 @@ const StyledMarkdown = styled.div`
       display: block;
       overflow: scroll;
       margin-bottom: 12px;
-      border-radius: 6px;
     }
   }
 
-  p:not([align="center"]) img {
-    padding: 6px;
+  img {
     max-width: 100%;
-    display: block;
-    background: ${p => p.theme.lightBg};
-    border-radius: 6px;
-    box-sizing: border-box;
+
+    p:not([align="center"]) & {
+      padding: 6px;
+      display: block;
+      background: ${p => p.theme.lightBg};
+      border-radius: 6px;
+      box-sizing: border-box;
+    }
   }
 
   a {
