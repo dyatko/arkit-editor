@@ -25,5 +25,6 @@ export const GlobalStyle = createGlobalStyle`
   main {
     overflow: hidden;
     height: 100%;
+    font: 300 14px "Oxygen", Helvetica, sans-serif;
   }
 `;
