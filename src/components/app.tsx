@@ -6,7 +6,7 @@ import { Header } from "./header";
 import { Logo } from "./logo";
 import { Readme } from "./readme";
 import { Editor } from "./editor";
-import { Preview } from "./preview";
+import { Preview } from "./editor/preview";
 import { connect } from "react-redux";
 
 const mapStateToProps = (state: State): Partial<State> => ({
