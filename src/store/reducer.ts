@@ -1,10 +1,30 @@
-import { UPDATE_ENCODED, UPDATE_LOADING, UPDATE_PUML } from "./actions";
-import { decode } from "plantuml-encoder-decoder";
+import {
+  UPDATE_ENCODED,
+  UPDATE_LOADING,
+  UPDATE_MODE,
+  UPDATE_PUML
+} from "./actions";
+import { decode, encode } from "plantuml-encoder-decoder";
 import { REHYDRATE } from "redux-persist/es/constants";
 import { AnyAction } from "redux";
 
+export const emptyPUML = `@startuml
+
+skinparam monochrome true
+skinparam shadowing false
+
+Developer -> (arkit)
+
+@enduml`;
+
+export enum Mode {
+  ABOUT = "about",
+  EDITOR = "editor"
+}
+
 export interface State {
   type: "svg" | "png";
+  mode: Mode;
   puml: string;
   encoded: string;
   url: string;
@@ -13,12 +33,9 @@ export interface State {
 
 export const INITIAL_STATE: State = {
   type: "svg",
-  puml: `@startuml
-
-
-
-@enduml`,
-  encoded: "",
+  mode: Mode.ABOUT,
+  puml: emptyPUML,
+  encoded: encode(emptyPUML),
   url: "",
   loaded: false
 };
@@ -32,6 +49,9 @@ const updateStateProperty = (
   ...state,
   [prop]: action.type === type ? action[prop] : state[prop]
 });
+
+const updateMode = (state: State, action: AnyAction): State =>
+  updateStateProperty(state, action, UPDATE_MODE, "mode");
 
 const updatePUML = (state: State, action: AnyAction): State =>
   updateStateProperty(state, action, UPDATE_PUML, "puml");
@@ -61,6 +81,7 @@ const updatePUMLFromURL = (state: State, action: AnyAction): State => {
 export const reducer = (oldState = INITIAL_STATE, action: AnyAction): State => {
   let newState: State = { ...oldState };
 
+  newState = updateMode(newState, action);
   newState = updatePUML(newState, action);
   newState = updateEncoded(newState, action);
   newState = updatePUMLFromURL(newState, action);
