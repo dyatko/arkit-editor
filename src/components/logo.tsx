@@ -14,6 +14,5 @@ export const Logo = styled.a.attrs(props => ({
   height: 60px;
   max-width: 150px;
   filter: invert(1);
-  padding: 6px;
-  margin: 0 auto;
+  padding: 6px 24px 6px;
 `;

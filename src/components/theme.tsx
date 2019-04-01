@@ -32,6 +32,10 @@ export const GlobalStyle = createGlobalStyle`
     height: 100%;
     font: 300 14px "Oxygen", Helvetica, sans-serif;
   }
+  
+  a {
+    color: inherit;
+  }
 `;
 
 export const Theme = ({ children }) => (

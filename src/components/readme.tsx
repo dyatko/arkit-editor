@@ -6,18 +6,12 @@ import { editor, languages } from "monaco-editor";
 
 editor.setTheme("vs-dark");
 
-const Scrollable = styled.div`
-  flex: 1;
-  overflow: scroll;
-`;
-
 const StyledMarkdown = styled.div`
   padding: 24px;
   padding-top: 0;
   box-sizing: border-box;
   max-width: 768px;
   width: 100%;
-  margin: 0 auto;
 
   h1 {
     font-weight: bold;
@@ -79,18 +73,14 @@ const StyledMarkdown = styled.div`
 
   img {
     max-width: 100%;
-
-    p:not([align="center"]) & {
-      padding: 6px;
-      display: block;
-      background: ${p => p.theme.lightBg};
-      border-radius: 6px;
-      box-sizing: border-box;
-    }
   }
 
-  a {
-    color: inherit;
+  p:not([align="center"]) img {
+    padding: 6px;
+    display: block;
+    background: ${p => p.theme.lightBg};
+    border-radius: 6px;
+    box-sizing: border-box;
   }
 `;
 
@@ -116,26 +106,23 @@ const codeRenderer = ({ language, value }) => {
 
 const staticBase = "https://raw.githubusercontent.com/dyatko/arkit/master/";
 const normalizeURI = uri => new URL(uri, staticBase).toString();
-const readmeMarkdownWithoutLogo = readmeMarkdown.split("\n").map(line =>
-  line.replace(/src="(.+?)"/, (substr, uri) => {
-    console.warn(substr);
-    return `src="${normalizeURI(uri)}"`;
-  })
-);
+const readmeMarkdownWithoutLogo = readmeMarkdown
+  .split("\n")
+  .map(line =>
+    line.replace(/src="(.+?)"/, (substr, uri) => `src="${normalizeURI(uri)}"`)
+  );
 readmeMarkdownWithoutLogo.splice(1, 1);
 
 export const Readme = () => (
-  <Scrollable>
-    <StyledMarkdown>
-      <ReactMarkdown
-        escapeHtml={false}
-        renderers={{
-          code: codeRenderer
-        }}
-        transformImageUri={normalizeURI}
-      >
-        {readmeMarkdownWithoutLogo.join("\n")}
-      </ReactMarkdown>
-    </StyledMarkdown>
-  </Scrollable>
+  <StyledMarkdown>
+    <ReactMarkdown
+      escapeHtml={false}
+      renderers={{
+        code: codeRenderer
+      }}
+      transformImageUri={normalizeURI}
+    >
+      {readmeMarkdownWithoutLogo.join("\n")}
+    </ReactMarkdown>
+  </StyledMarkdown>
 );
