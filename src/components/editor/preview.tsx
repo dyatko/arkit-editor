@@ -59,7 +59,7 @@ const mapStateToProps = (state: State): Partial<ImageProps> => {
   const host = isDev ? "https://arkit.herokuapp.com" : "";
 
   return {
-    src: `${host}${state.url}?raw`,
+    src: `${host}${state.url}/raw`,
     loading: !state.loaded
   };
 };
