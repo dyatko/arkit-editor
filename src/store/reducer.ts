@@ -4,7 +4,7 @@ import {
   UPDATE_MODE,
   UPDATE_PUML
 } from "./actions";
-import { decode, encode } from "plantuml-encoder-decoder";
+import { decode, encode } from "arkit-encoder-decoder";
 import { REHYDRATE } from "redux-persist/es/constants";
 import { AnyAction } from "redux";
 

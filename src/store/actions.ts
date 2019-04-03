@@ -1,4 +1,4 @@
-import { encode } from "plantuml-encoder-decoder";
+import { encode } from "arkit-encoder-decoder";
 import { Mode } from "./reducer";
 
 export const UPDATE_PUML = "UPDATE_PUML";
