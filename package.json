@@ -42,7 +42,7 @@
     "monaco-editor": "0.16.2",
     "react": "16.8.6",
     "react-dom": "16.8.6",
-    "react-github-btn": "1.0.4",
+    "react-github-btn": "1.0.5",
     "react-loader-spinner": "2.3.0",
     "react-markdown": "4.0.6",
     "react-monaco-editor": "0.25.1",
