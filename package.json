@@ -5,9 +5,14 @@
   "scripts": {
     "architecture": "arkit -o arkit.svg",
     "start": "parcel ./src/index.html",
-    "test": "npm run prepack",
-    "prettier": "prettier --write \"src/**/*.{ts,tsx,html,scss}\"",
-    "prepack": "npm run prettier && npm run architecture && rm -rf dist/* && npx parcel build ./src/index.html"
+    "build": "npm run prettier && rm -rf dist/* && npx parcel build ./src/index.html",
+    "test": "npm run build && test:cypress",
+    "test:server": "serve -l 1234 -s dist/",
+    "test:cypress": "start-server-and-test test:server http://localhost:1234 test:cypress-run",
+    "test:cypress-run": "cypress run --browser chrome",
+    "test:cypress-open": "npm start && npx cypress open",
+    "prettier": "prettier --write \"{src,cypress}/**/*.{ts,tsx,html,scss,js}\"",
+    "prepack": "npm run architecture && npm run test"
   },
   "repository": {
     "type": "git",
@@ -31,9 +36,12 @@
   "devDependencies": {
     "@types/react": "16.8.10",
     "@types/styled-components": "4.1.12",
+    "cypress": "^3.2.0",
     "parcel": "1.12.3",
     "prettier": "1.16.4",
     "sass": "1.17.4",
+    "serve": "^11.0.0",
+    "start-server-and-test": "^1.7.13",
     "typescript": "3.4.1"
   },
   "dependencies": {
