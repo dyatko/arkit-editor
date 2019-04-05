@@ -36,18 +36,18 @@
   "devDependencies": {
     "@types/react": "16.8.10",
     "@types/styled-components": "4.1.12",
-    "cypress": "^3.2.0",
+    "cypress": "3.2.0",
     "parcel": "1.12.3",
     "prettier": "1.16.4",
     "sass": "1.17.4",
-    "serve": "^11.0.0",
-    "start-server-and-test": "^1.7.13",
+    "serve": "11.0.0",
+    "start-server-and-test": "1.7.13",
     "typescript": "3.4.1"
   },
   "dependencies": {
     "arkit": "1.5.3",
     "arkit-encoder-decoder": "1.0.0",
-    "marked": "^0.6.1",
+    "marked": "0.6.1",
     "monaco-editor": "0.16.2",
     "react": "16.8.6",
     "react-dom": "16.8.6",
