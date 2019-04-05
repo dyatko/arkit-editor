@@ -45,7 +45,7 @@
     "typescript": "3.4.1"
   },
   "dependencies": {
-    "arkit": "1.5.2",
+    "arkit": "1.5.3",
     "arkit-encoder-decoder": "1.0.0",
     "marked": "^0.6.1",
     "monaco-editor": "0.16.2",

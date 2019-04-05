@@ -4,6 +4,4 @@ node_js:
   - node
 addons:
   chrome: stable
-cache:
-  directories:
-    - "$HOME/.npm"
+cache: npm
