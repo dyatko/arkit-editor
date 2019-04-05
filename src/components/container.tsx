@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Container = styled.div`
   display: flex;
@@ -20,6 +20,10 @@ export const Centred = styled.div<{
   flex: ${p => (p.full ? "1" : "initial")};
 `;
 
+const isHiddenCSS = css`
+  ${p => p.isHidden && "display: none"};
+`;
+
 export const Scrollable = styled.div`
   flex: 1;
   overflow: scroll;
@@ -28,4 +32,10 @@ export const Scrollable = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  ${isHiddenCSS}
+`;
+
+export const Holder = styled.div`
+  overflow: hidden;
+  ${isHiddenCSS}
 `;

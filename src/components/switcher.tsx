@@ -34,6 +34,7 @@ const StyledSwitcher = styled.a<SwitcherProps>`
   cursor: ${p => (p.isCurrent ? "default" : "pointer")};
   margin: 8px 0 16px;
   text-decoration: ${p => (p.isCurrent ? "none" : "underline")};
+  text-align: center;
 
   &:first-of-type {
     border-radius: 6px 0 0 6px;

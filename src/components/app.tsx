@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Mode, State } from "../store/reducer";
-import { Centred, Container, Scrollable } from "./container";
+import { Centred, Container, Holder, Scrollable } from "./container";
 import { Section } from "./section";
 import { Logo } from "./logo";
 import { Readme } from "./readme";
@@ -23,12 +23,12 @@ export const App = connect(mapStateToProps)((props: Partial<State>) => {
         <Centred as="header">
           <Logo />
         </Centred>
-        {!isEditor && (
-          <Scrollable>
-            <Readme />
-          </Scrollable>
-        )}
-        {isEditor && <Editor />}
+        <Scrollable isHidden={isEditor}>
+          <Readme />
+        </Scrollable>
+        <Holder isHidden={!isEditor}>
+          <Editor />
+        </Holder>
         <Centred as="footer" direction="row">
           <Switcher target={Mode.ABOUT}>About arkit</Switcher>
           <Switcher target={Mode.EDITOR}>PlantUML editor</Switcher>

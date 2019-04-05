@@ -67,6 +67,8 @@ const StyledMarkdown = styled.div`
       border: 1px solid rgba(255, 255, 255, 0.1);
       display: block;
       overflow: scroll;
+      overflow-scrolling: touch;
+      -webkit-overflow-scrolling: touch;
       margin-bottom: 12px;
     }
   }
@@ -98,7 +100,9 @@ const codeRenderer = ({ language, value }) => {
     : Promise.resolve(value);
 
   htmlPromise.then(result => {
-    ref.current.innerHTML = result;
+    if (ref.current) {
+      ref.current.innerHTML = result;
+    }
   });
 
   return <code className={"block"} ref={ref} />;

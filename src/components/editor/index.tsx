@@ -1,7 +1,6 @@
 import * as React from "react";
 import MonacoEditor, { MonacoEditorProps } from "react-monaco-editor";
 import { connect } from "react-redux";
-import styled from "styled-components";
 import { updateEncoded, updatePUML } from "../../store/actions";
 import { emptyPUML, State } from "../../store/reducer";
 import { registerPlantUML } from "./plantuml-language";
@@ -41,15 +40,7 @@ const mapDispatchToProps = (dispatch): MonacoEditorProps => {
   };
 };
 
-const Holder = styled.div`
-  overflow: hidden;
-`;
-
 export const Editor = connect(
   mapStateToProps,
   mapDispatchToProps
-)(({ ...props }) => (
-  <Holder>
-    <MonacoEditor {...props} />
-  </Holder>
-));
+)(MonacoEditor);
