@@ -1,6 +1,6 @@
 {
   "name": "arkit-editor",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "Arkit React-based editor for PlantUML",
   "scripts": {
     "architecture": "arkit -o arkit.svg",
@@ -45,7 +45,7 @@
     "typescript": "3.4.1"
   },
   "dependencies": {
-    "arkit": "1.5.1",
+    "arkit": "1.5.2",
     "arkit-encoder-decoder": "1.0.0",
     "marked": "^0.6.1",
     "monaco-editor": "0.16.2",
