@@ -36,7 +36,7 @@ export const Section = styled.section<SectionProps>`
   flex-direction: column;
   color: ${p => (p.dark ? p.theme.light : p.theme.dark)};
   background: ${p => (p.dark ? p.theme.darkBg : p.theme.lightBg)};
-  transition: all 0.4s ease-out;
+  transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
   ${p => p.center && centerCSS}
   ${p => p.narrow && narrowCSS}
   ${p => p.collapsed && collapsedCSS}

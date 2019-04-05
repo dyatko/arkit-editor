@@ -24,15 +24,19 @@ export const theme: DefaultTheme = {
 
 export const GlobalStyle = createGlobalStyle`
   ${reset}
-  
+
   html,
   body,
   main {
     overflow: hidden;
+    overflow-scrolling: auto;
+    -webkit-overflow-scrolling: auto;
     height: 100%;
+    width: 100%;
+    position: fixed;
     font: 300 14px "Oxygen", Helvetica, sans-serif;
   }
-  
+
   a {
     color: inherit;
   }

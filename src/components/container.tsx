@@ -24,6 +24,7 @@ export const Scrollable = styled.div`
   flex: 1;
   overflow: scroll;
   overflow-scrolling: touch;
+  -webkit-overflow-scrolling: touch;
   display: flex;
   align-items: center;
   flex-direction: column;
