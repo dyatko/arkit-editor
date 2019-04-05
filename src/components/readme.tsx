@@ -1,6 +1,6 @@
 import * as React from "react";
 import ReactMarkdown from "react-markdown";
-import readmeMarkdown from "arkit/README.md";
+import readmeMarkdown from "../../node_modules/arkit/README.md";
 import styled from "styled-components";
 import { editor, languages } from "monaco-editor";
 
