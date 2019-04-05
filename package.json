@@ -6,10 +6,9 @@
     "architecture": "arkit -f src/index.tsx -o arkit.svg",
     "start": "parcel ./src/index.html",
     "build": "npm run prettier && rm -rf dist/* && npx parcel build ./src/index.html",
-    "test": "npm run build && test:cypress",
-    "test:server": "serve -l 1234 -s dist/",
-    "test:cypress": "start-server-and-test test:server http://localhost:1234 test:cypress-run",
+    "test": "start-server-and-test test:server http://localhost:1234 test:cypress-run",
     "test:cypress-run": "cypress run --browser chrome",
+    "test:server": "serve -l 1234 -s dist/",
     "test:cypress-open": "npm start && npx cypress open",
     "prettier": "prettier --write \"{src,cypress}/**/*.{ts,tsx,html,scss,js}\"",
     "prepack": "npm run architecture && npm run test"
