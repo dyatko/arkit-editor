@@ -33,7 +33,7 @@
   },
   "homepage": "https://github.com/dyatko/arkit-editor#readme",
   "devDependencies": {
-    "@types/react": "16.8.15",
+    "@types/react": "16.8.16",
     "@types/styled-components": "4.1.14",
     "cypress": "3.2.0",
     "parcel": "1.12.3",
