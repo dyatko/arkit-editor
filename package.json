@@ -37,7 +37,7 @@
     "@types/styled-components": "4.1.16",
     "cypress": "3.3.1",
     "parcel": "1.12.3",
-    "prettier": "1.17.1",
+    "prettier": "1.18.0",
     "sass": "1.21.0",
     "serve": "11.0.1",
     "start-server-and-test": "1.9.1",
