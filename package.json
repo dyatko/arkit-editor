@@ -41,7 +41,7 @@
     "sass": "1.21.0",
     "serve": "11.0.1",
     "start-server-and-test": "1.9.1",
-    "typescript": "3.5.1"
+    "typescript": "3.5.2"
   },
   "dependencies": {
     "arkit": "1.6.1",
