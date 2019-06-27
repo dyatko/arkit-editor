@@ -35,7 +35,7 @@
   "devDependencies": {
     "@types/react": "16.8.22",
     "@types/styled-components": "4.1.16",
-    "cypress": "3.3.1",
+    "cypress": "3.3.2",
     "parcel": "1.12.3",
     "prettier": "1.18.2",
     "sass": "1.22.1",
