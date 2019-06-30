@@ -46,7 +46,7 @@
   "dependencies": {
     "arkit": "1.6.2",
     "arkit-encoder-decoder": "1.0.0",
-    "marked": "0.6.2",
+    "marked": "0.6.3",
     "monaco-editor": "0.17.1",
     "react": "16.8.6",
     "react-dom": "16.8.6",
