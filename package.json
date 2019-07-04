@@ -38,7 +38,7 @@
     "cypress": "3.3.2",
     "parcel": "1.12.3",
     "prettier": "1.18.2",
-    "sass": "1.22.2",
+    "sass": "1.22.3",
     "serve": "11.0.2",
     "start-server-and-test": "1.9.1",
     "typescript": "3.5.2"
