@@ -37,5 +37,6 @@ export const Scrollable = styled.div`
 
 export const Holder = styled.div`
   overflow: hidden;
+  flex: 1;
   ${isHiddenCSS}
 `;
