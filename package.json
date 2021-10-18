@@ -36,7 +36,7 @@
     "@types/react": "16.8.23",
     "@types/styled-components": "4.1.16",
     "cypress": "3.3.2",
-    "parcel": "1.12.3",
+    "parcel": "2.0.0",
     "prettier": "1.18.2",
     "sass": "1.22.3",
     "serve": "11.0.2",
@@ -44,7 +44,7 @@
     "typescript": "3.5.2"
   },
   "dependencies": {
-    "arkit": "1.6.2",
+    "arkit": "1.6.3",
     "arkit-encoder-decoder": "1.0.0",
     "marked": "0.7.0",
     "monaco-editor": "0.17.1",
