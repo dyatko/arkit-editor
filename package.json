@@ -52,7 +52,7 @@
     "react-dom": "16.8.6",
     "react-github-btn": "1.0.5",
     "react-loader-spinner": "2.3.0",
-    "react-markdown": "4.1.0",
+    "react-markdown": "5.0.0",
     "react-monaco-editor": "0.26.2",
     "react-redux": "7.1.0",
     "redux": "4.0.1",
