@@ -47,7 +47,7 @@
     "arkit": "1.6.2",
     "arkit-encoder-decoder": "1.0.0",
     "marked": "0.7.0",
-    "monaco-editor": "0.17.1",
+    "monaco-editor": "0.52.0",
     "react": "16.8.6",
     "react-dom": "16.8.6",
     "react-github-btn": "1.0.5",
